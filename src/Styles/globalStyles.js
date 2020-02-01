@@ -5,7 +5,7 @@ import styled, {createGlobalStyle} from 'styled-components';
 import {fontStyles, theme} from './styleVars';
 
 const GlobalStyle= createGlobalStyle`
-  *{
+  *, *::before, *::after{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -13,17 +13,26 @@ const GlobalStyle= createGlobalStyle`
 
   body{
     font-size: 62.5%; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
   }
 `;
 
 // **************** CONTAINER **************** //
   const AppCont= styled.div`
     position: relative;
-    box-sizing: border-box;
     margin: 0 auto;
     padding: 0 2%;
     height: 100vh;
-    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
