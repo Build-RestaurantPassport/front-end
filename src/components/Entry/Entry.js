@@ -1,14 +1,18 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
+//componenets
 
 //styles
-import '../../Styles/styleVars';
-import '../../Styles/globalStyles';
+import {Para, Button} from '../../Styles/globalStyles';
 import './EntryStyles';
 
 const Entry = () => {
   return (
-    <div>
-      
+    <div className= 'entryPoint'>
+      <Para>LogIn/SignIn forms go here</Para>
+      <Link to= '/login'>Log In</Link>
+      <Link to= '/signup'>Sign Up</Link>
     </div>
   )
 }

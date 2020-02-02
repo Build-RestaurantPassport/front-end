@@ -1,12 +1,34 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
+//components
+import Entry from './components/Entry/Entry';
+import LogIn from './components/LogIn/LogIn';
+import SignUp from './components/SignUp/SignUp';
+import Profile from './components/Profile/Profile';
+
+//styles
 import './Styles/styleVars';
 import {GlobalStyle, AppCont, Heading1, Para} from './Styles/globalStyles';
+
 
 function App() {
   return (
     // AppCont is a default styled-component I made. just some default basics to help us get started. we can change and tweak later as needed.
     <AppCont className="App">  
     <GlobalStyle />
+    <Route exact path= '/'>
+      <Entry />
+    </Route>
+    <Route exact path= '/login'>
+      <LogIn />
+    </Route>
+    <Route exact path= '/signup'>
+      <SignUp />
+    </Route>
+    <Route exact path= '/profile'>
+      <Profile />
+    </Route>
+    <Route exact path= '/'> 
       {/* just some notes here for my team, since I have no life and worked all weekend lol */}
       <Heading1>Notes for the team: by Scott Fuston</Heading1>
 
@@ -25,7 +47,7 @@ function App() {
       <Para>all styels are controlled form 'styles/styleVars', from there the vars map into 'globalStyles' where I have some basic components set up. heading tags, paragraphs anchors etc.. they a are all dynamic. they all can take bgColor, color and some fontSize props or you can control defaults from styleVars</Para>
 
       <Para>at the top of globalStyles I used '<b>createGlobalStyle</b>' to set basic global styles like 'body' and '*'. This also where we would include a 'reset' if you want to</Para>
-
+      </Route>
     </AppCont>
   );
 }
