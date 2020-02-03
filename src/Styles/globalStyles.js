@@ -37,7 +37,7 @@ const GlobalStyle= createGlobalStyle`
   const AppCont= styled.div`
     position: relative;
     margin: 0 auto;
-    padding: 0 4%;
+    padding: 2% 4%;
     height: 100vh;
     max-width: 100%;
     display: flex;
