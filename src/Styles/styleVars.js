@@ -8,7 +8,7 @@ const theme= {
   gray: '#999',
   orange: 'darkGoldenRod',
   blue: 'cornflowerBlue',
-  green: 'lawnGreen',
+  green: '#219653',
   brown: 'darkKhaki',
 
   // translucent
@@ -20,7 +20,7 @@ const fontStyles= {
   // **** FONT COLORS ****
   pColor: theme.black,
   linkColor: theme.orange,
-  h1Color: theme.brown,
+  h1Color: theme.green,
   h2Color: theme.gray,
   h3Color: theme.gray,
   h4Color: theme.gray,

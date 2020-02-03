@@ -11,6 +11,12 @@ const GlobalStyle= createGlobalStyle`
     box-sizing: border-box;
   }
 
+  a{
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+  }
+
   body{
     font-size: 62.5%; 
     // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -31,7 +37,7 @@ const GlobalStyle= createGlobalStyle`
   const AppCont= styled.div`
     position: relative;
     margin: 0 auto;
-    padding: 0 2%;
+    padding: 0 4%;
     height: 100vh;
     max-width: 100%;
     display: flex;
@@ -91,11 +97,19 @@ const Para= styled.p`
   margin: 5px;
 `;
 
-const Anchor= styled.a`
+const Anchor= styled.span`
   color: ${props => props.color || fontStyles.linkColor};
   font-size: ${props => props.fontSize || fontStyles.linkSize};
-  text-decoration: none;
   margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  background-color: gray;
+  
+  a{
+    color: blue;
+  }
   
   &:hover{
     cursor: pointer;

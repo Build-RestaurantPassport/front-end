@@ -8,7 +8,7 @@ import Profile from './components/Profile/Profile';
 
 //styles
 import './Styles/styleVars';
-import {GlobalStyle, AppCont, Heading1, Para} from './Styles/globalStyles';
+import {GlobalStyle, AppCont, Heading2, Para} from './Styles/globalStyles';
 
 
 function App() {
@@ -28,9 +28,11 @@ function App() {
     <Route exact path= '/profile'>
       <Profile />
     </Route>
+    
+    {/* delete route below, just for testing and contains notes */}
     <Route exact path= '/'> 
       {/* just some notes here for my team, since I have no life and worked all weekend lol */}
-      <Heading1>Notes for the team: by Scott Fuston</Heading1>
+      <Heading2>Notes for the team: by Scott Fuston</Heading2>
 
       <Para>Cleaned up starter files and installed dependencies:</Para>
 

@@ -4,14 +4,16 @@ import {Link} from 'react-router-dom';
 //components
 
 //styles
-import {Para} from '../../Styles/globalStyles';
+import {Para, Anchor} from '../../Styles/globalStyles';
 import './LogInStyles';
 
 const LogIn = () => {
   return (
     <div>
       <Para>Log In Form</Para>
-      <Link to= '#'>Submit(to app main display)</Link>
+      <Anchor>
+        <Link to= '#'>Submit</Link>
+      </Anchor>
     </div>
   )
 }

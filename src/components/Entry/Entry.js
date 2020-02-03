@@ -4,15 +4,17 @@ import {Link} from 'react-router-dom';
 //componenets
 
 //styles
-import {Para, Button} from '../../Styles/globalStyles';
+import {fontStyles} from '../../Styles/styleVars';
+import {Para, Anchor, Heading1} from '../../Styles/globalStyles';
 import './EntryStyles';
 
 const Entry = () => {
   return (
     <div className= 'entryPoint'>
-      <Para>LogIn/SignIn forms go here</Para>
-      <Link to= '/login'>Log In</Link>
-      <Link to= '/signup'>Sign Up</Link>
+      <Heading1>TT Logo.. Table Tours</Heading1>
+      <Para>Log In/Sign Up </Para>
+      <Anchor><Link to= '/login'>Log In</Link></Anchor>
+      <Anchor><Link to= '/signup'>Sign Up</Link></Anchor>
     </div>
   )
 }
