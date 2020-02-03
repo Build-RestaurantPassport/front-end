@@ -20,7 +20,6 @@ const LogIn = () => {
   //functions
 
   function handleChange(e){
-    console.log(formData);
     setFormData( {...formData, [e.target.name]: e.target.value} );
   }//end handleChange
 
@@ -31,7 +30,7 @@ const LogIn = () => {
     .then(res => console.log(res))
     .catch(err => console.log(err))
   }//end handleSubmit
-
+  console.log(formData);  
   return (
     <div className= 'logInCont'>
       <Heading1>Log In</Heading1>
