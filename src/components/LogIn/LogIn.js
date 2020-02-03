@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 //components
 
@@ -21,11 +22,10 @@ const LogIn = ({ values, status, errors, touched }) => {
   }, [status])
 
   return (
-    <div>
+    <div className= 'logInCont'>
       <Heading1>Log In</Heading1>
 
       <Form>
-
         <label htmlFor= 'email' />
         <Field
           id= 'emailInput'
@@ -56,6 +56,7 @@ const formikLogIn = withFormik({
     }//end return
   },//end mapPropsToValues
   handleSubmit(values, { setStatus, resetForm }) {
+    //axios here
     setStatus(values);
     resetForm();
   }//end handleSubmit
