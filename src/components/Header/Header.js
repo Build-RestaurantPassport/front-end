@@ -9,7 +9,7 @@ import {ProfileLogoImg, ProfileLogoImgCont} from './HeaderStyles';
 const Header = () => {
   return (
     <div className= 'headerCont'>
-      <Link to= 'localrestaurants'><img src= {RightArrow} /></Link>
+      <Link to= 'restaurants'><img src= {RightArrow} /></Link>
       <a href= '#'>Edit Profile Cover</a>
       <ProfileLogoImgCont className= 'profileHeaderImgCont'>
         <ProfileLogoImg src= {profileHeaderImg} />
