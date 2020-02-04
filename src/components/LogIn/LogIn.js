@@ -1,40 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import { withFormik, Form, Field } from 'formik';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 //components
 
-
 //styles
 import {Heading1} from '../../Styles/globalStyles';
 import './LogInStyles';
 
-const LogIn = ({ values, status, errors, touched }) => {
+const LogIn = () => {
   //state
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState([
+    {
+      email: '',
+      password: ''
+    }
+  ]);
 
   //functions
-  useEffect(() => {
-    console.log(status);
-    status && setFormData( formData => [ ...formData, status ] );
 
-  }, [status])
+  function handleChange(e){
+    setFormData( {...formData, [e.target.name]: e.target.value} );
+  }//end handleChange
 
+  function handleSubmit(e){
+    e.preventDefault();
+    axios
+    .get('')
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }//end handleSubmit
+  console.log(formData);  
   return (
     <div className= 'logInCont'>
       <Heading1>Log In</Heading1>
 
-      <Form>
+      <form onSubmit= {handleSubmit}>
         <label htmlFor= 'email' />
-        <Field
+        <input
+          onChange= {handleChange}
+          value= {formData.email}
           id= 'emailInput'
           type='email'
           name='email'
           placeholder= 'Email'
         />
         <label htmlFor= 'password'>
-          <Field
+          <input
+            onChange= {handleChange}
+            value= {formData.password}
             id= 'passwordInput'
             type='password'
             name='password'
@@ -42,23 +56,11 @@ const LogIn = ({ values, status, errors, touched }) => {
           />
         </label>
         <button type= 'submit'>Submit</button>
-      </Form>
+      </form>
+
       <span>Don't have an account? <Link to= 'signup'>Sign-Up</Link></span>
     </div>
   )
 }
 
-const formikLogIn = withFormik({
-  mapPropsToValues(props) {
-    return {
-      email: props.email || '',
-      password: props.password || ''
-    }//end return
-  },//end mapPropsToValues
-  handleSubmit(values, { setStatus, resetForm }) {
-    //axios here
-    setStatus(values);
-    resetForm();
-  }//end handleSubmit
-})(LogIn)
-export default formikLogIn;
+export default LogIn;

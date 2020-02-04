@@ -5,6 +5,7 @@ import Entry from './components/Entry/Entry';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
 import Profile from './components/Profile/Profile';
+import Restaurants from './components/Restaurants/Restaurants';
 
 //styles
 import './Styles/styleVars';
@@ -27,6 +28,10 @@ function App() {
       </Route>
       <Route exact path='/profile'>
         <Profile />
+      </Route>
+
+      <Route exact path= '/restaurants'>
+        <Restaurants />
       </Route>
 
     </AppCont>

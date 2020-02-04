@@ -1,10 +1,19 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
+//components
+import profileHeaderImg from '../../Assets/images/Burger_Icon.png';
+import RightArrow from '../../Assets/images/chevron_right.png'
+//styles
+import {ProfileLogoImg, ProfileLogoImgCont} from './HeaderStyles';
 const Header = () => {
   return (
     <div className= 'headerCont'>
-
-      <h2>Header Here</h2>
+      <Link to= 'restaurants'><img src= {RightArrow} /></Link>
+      <a href= '#'>Edit Profile Cover</a>
+      <ProfileLogoImgCont className= 'profileHeaderImgCont'>
+        <ProfileLogoImg src= {profileHeaderImg} />
+      </ProfileLogoImgCont>
     </div>
   )
 }
