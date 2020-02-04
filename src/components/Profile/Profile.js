@@ -26,7 +26,7 @@ const Profile = () => {
         {/* <h3>Edit Profile - or - Add Photos (<i>dynamic</i>)</h3> */}
         <Heading3>Rebecca Spedding</Heading3>
         <p className='followersDisp'>
-          <span>0</span> Followers | <span>0</span> Following
+          <span>312</span> Followers | <span>220</span> Following
         </p>
         <ButtonRow className='buttonRow'>
           <ProfileButton>Add Reviews</ProfileButton>
