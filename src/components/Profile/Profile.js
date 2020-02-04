@@ -7,14 +7,15 @@ import AddPhotos from './AddPhotos/AddPhotos';
 import AddReviews from './AddReviews/AddReviews';
 
 //styles
-import { Para } from '../../Styles/globalStyles';
+import {Heading3} from '../../Styles/globalStyles';
 import {
   ProfileLower, 
   ProfileButton, 
   ButtonRow, 
   ProfileCont, 
   ProfileMid,
-  ProfileNav
+  ProfileNav,
+  ProfileDynamic
 } from './ProfileStyles';
 
 const Profile = () => {
@@ -22,7 +23,8 @@ const Profile = () => {
     <ProfileCont className='profileCont'>
       <Header />
       <ProfileMid className='profileMid'>
-        <h3>Edit Profile - or - Add Photos (<i>dynamic</i>)</h3>
+        {/* <h3>Edit Profile - or - Add Photos (<i>dynamic</i>)</h3> */}
+        <Heading3>Rebecca Spedding</Heading3>
         <p className='followersDisp'>
           <span>0</span> Followers | <span>0</span> Following
         </p>
@@ -44,15 +46,15 @@ const Profile = () => {
             </li>
           </ul>
         </ProfileNav>
-        <div className= 'profileDynamic'>
-          <Route path= '/profile/:addreviews'>
+        <ProfileDynamic className= 'profileDynamic'>
+          {/* <Route path= '/profile/:addreviews'> */}
             <AddReviews />
-          </Route>
+          {/* </Route> */}
 
           <Route path= '/profile/:addphotos'>
             <AddPhotos />
           </Route>
-        </div>
+        </ProfileDynamic>
 
       </ProfileLower>
     </ProfileCont>

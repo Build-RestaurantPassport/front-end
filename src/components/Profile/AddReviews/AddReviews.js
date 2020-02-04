@@ -4,15 +4,16 @@ import React from 'react';
 import ReviewCardIcon from '../../../Assets/images/review_card.png';
 
 //styles
-import './AddReviewsStyles';
+import {Para} from '../../../Styles/globalStyles';
+import {AddReviewsCont} from './AddReviewsStyles';
 
 const AddReviews = () => {
   return (
-    <div className= 'addReviews'>
+    <AddReviewsCont className= 'addReviews'>
       <img src={ReviewCardIcon} />
-      <p>You haven't written any reviews yet.</p>
+      <Para>You haven't written any reviews yet.</Para>
       <a href='#'>Add Reviews</a>
-    </div>
+    </AddReviewsCont>
   )
 }
 

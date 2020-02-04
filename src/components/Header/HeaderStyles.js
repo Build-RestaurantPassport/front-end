@@ -8,8 +8,12 @@ const HeaderCont= styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 30%;
+  height: 25%;
   position: relative;
+`;
+
+const ProfileBgImg= styled.img`
+  width: 100%;
 `;
 
 const ArrowImg= styled.img`
@@ -34,9 +38,8 @@ const ProfileLogoImgCont= styled.div`
   background-color: red;
   border-radius: 50%;
   border: 1px solid #eee;
-  left: 38%;
-  bottom: -20%;
-
+  left: 41%;
+  bottom: -40%;
 `;
 
 const ProfileLogoImg= styled.img`
@@ -47,5 +50,6 @@ export {
   ProfileLogoImg, 
   ProfileLogoImgCont, 
   HeaderCont,
-  ArrowImg
+  ArrowImg,
+  ProfileBgImg
 };
