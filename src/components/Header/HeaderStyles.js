@@ -24,17 +24,23 @@ const ArrowImg= styled.img`
 `;
 
 const ProfileLogoImgCont= styled.div`
-  width: 20%;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 5% auto 0 auto;
   position: absolute;
   background-color: red;
   border-radius: 50%;
+  border: 1px solid #eee;
   left: 38%;
   bottom: -20%;
+
 `;
 
 const ProfileLogoImg= styled.img`
-  width: 90%;
+  width: 65%;
 `;
 
 export {
