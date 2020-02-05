@@ -9,9 +9,9 @@ import './AddPhotosStyles';
 const AddPhotos = () => {
   return (
     <div className= 'addPhotos'>
-      <img src={PhotoIcon} />
+      <img alt= 'icon' src={PhotoIcon} />
       <p>You haven't uploaded photos yet.</p>
-      <a href='#'>Add Photo</a>
+      <button>Add Photo</button>
     </div>
   )
 }

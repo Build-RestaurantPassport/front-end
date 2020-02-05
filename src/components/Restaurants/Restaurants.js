@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 
@@ -13,6 +13,12 @@ import Rest1 from '../../Assets/images/rest_profile_card_elrin.png';
 import Rest2 from '../../Assets/images/rest_profile_card_ham.png';
 import Rest3 from '../../Assets/images/rest_profile_card_kin.png';
 import Rest4 from '../../Assets/images/rest_profile_card_ledip.png';
+import Rest5 from '../../Assets/images/rest_profile_card_liltav.png';
+import Rest6 from '../../Assets/images/rest_profile_card_may.png';
+import Rest7 from '../../Assets/images/rest_profile_card_oldebbitt.png';
+import Rest8 from '../../Assets/images/rest_profile_card_pom.png';
+import Rest9 from '../../Assets/images/rest_profile_card_salt.png';
+import Rest10 from '../../Assets/images/rest_profile_card_zay.png';
 
 //styles
 import { Heading4, SmallPara, ExtraSmallPara } from '../../Styles/globalStyles';
@@ -30,16 +36,28 @@ import {
 
 const Restaurants = () => {
   //state
+  const [data, setData]= useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
 
     axios
+    .get('https://bw-restaurant-pass.herokuapp.com/api/cities/all/rests')
+    .then(res => {
+      console.log(res.data);
+      setData(res.data);
+    })
+    .catch(err => {console.log(err);})
 
   }, [])
 
   //functions
+  function getRandNum(){
+    let randNum= Math.floor(Math.random()*10)+1;
+    return randNum;
+  }//end func
+
   function handleChange(e) {
     console.log(e.target.value);
     setSearchTerm(e.target.value);
@@ -105,28 +123,40 @@ const Restaurants = () => {
       </FavDispCont> {/* end favoritesDisp */}
 
       {/* main display for restaurant cards */}
+    
       <div className='mainDispCont'>
         {/* display cards */}
-        <Link to='#'>
+        {
+          
+          data.map( (ele, i) => {
+            return(
+
+              <Link key= {i} to='#'>
           <RestCard className='card'>
             <img alt='restaurant' src={Rest1} />
             <RestInfo className='restInfo'>
-              <Heading4>Chicago Dog House</Heading4>
+              <Heading4>{ele.name}</Heading4>
               <ExtraSmallPara>
-                Great Chicago style hot dogs
+                {ele.notes}
               </ExtraSmallPara>
               <ExtraSmallPara>
-                Chicago
+                {ele.city}
               </ExtraSmallPara>
               <ExtraSmallPara>
-                chicagodoghouse.com
+                {ele.website}
               </ExtraSmallPara>
             </RestInfo>
             <RatingDisp className='ratingDisp'>
-              3.9
+              {ele.rating}
             </RatingDisp>
           </RestCard>
         </Link>
+
+            )/**end return */
+          })
+        }
+
+        
       </div> {/* end mainDispCont */}
     </div> // end restaurantsCont
   )

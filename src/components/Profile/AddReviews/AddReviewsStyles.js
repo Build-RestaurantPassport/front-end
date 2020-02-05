@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {theme} from '../../../Styles/styleVars';
 
 const AddReviewsCont= styled.div`
   display: flex:

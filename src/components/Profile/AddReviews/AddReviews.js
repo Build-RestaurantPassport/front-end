@@ -10,9 +10,9 @@ import {AddReviewsCont} from './AddReviewsStyles';
 const AddReviews = () => {
   return (
     <AddReviewsCont className= 'addReviews'>
-      <img src={ReviewCardIcon} />
+      <img alt= 'icon' src={ReviewCardIcon} />
       <Para>You haven't written any reviews yet.</Para>
-      <a href='#'>Add Reviews</a>
+      <button>Add Reviews</button>
     </AddReviewsCont>
   )
 }
