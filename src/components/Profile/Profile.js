@@ -7,6 +7,7 @@ import ReviewCardDefault from '../../Assets/images/review_card.png';
 //styles
 import {Para} from '../../Styles/globalStyles';
 import './ProfileStyles';
+import axios from '../../axiosWithAuth';
 
 const Profile = () => {
   return (

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../axiosWithAuth';
 
 //components
 
@@ -11,7 +11,7 @@ import './SignUpStyles';
 const SignUp = () => {
   //state
   const [formData, setFormData]= useState([{
-    name: '',
+    username: '',
     email: '',
     password: ''
   }]);
@@ -26,9 +26,15 @@ const SignUp = () => {
   function handleSubmit(e){
     e.preventDefault();
     axios
-    .get('')
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    .get('', {
+
+      
+
+    }).then(res => {
+
+
+
+    }).catch(err => console.log(err))
   }//end handleSubmit
 
   return (
@@ -36,14 +42,14 @@ const SignUp = () => {
       <Heading1>Sign UP</Heading1>
 
       <form onSubmit= {handleSubmit}>
-      <label htmlFor= 'name' />
+      <label htmlFor= 'username' />
         <input
           onChange= {handleChange}
-          value= {formData.name}
-          id= 'nameInput'
+          value= {formData.username}
+          id= 'usernameInput'
           type='text'
-          name='name'
-          placeholder= 'Name'
+          name='username'
+          placeholder= 'Username'
         />
         <label htmlFor= 'email' />
         <input
