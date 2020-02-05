@@ -5,10 +5,11 @@ import * as Yup from 'yup';
 import {Form, withFormik, Field} from 'formik';
 
 //components
+import LeftArrow from '../../Assets/images/Chevron_Left.png';
 
 //styles
 import {Heading1} from '../../Styles/globalStyles';
-import './SignUpStyles';
+import {SignUpHeader, LogInCont} from './SignUpStyles';
 
 const SignUp = ({values, errors, touched, status}) => {
   //state
@@ -30,12 +31,15 @@ const SignUp = ({values, errors, touched, status}) => {
   }, [status])
 
   return (
-    <div className= 'logInCont'>
-      <Heading1>Sign UP</Heading1>
+    <LogInCont className= 'logInCont'>
+      <SignUpHeader className= 'signUpHeader'>
+        <span><img alt= 'arrow-left' src= {LeftArrow} /></span>
+        <Heading1>Sign UP</Heading1>
+      </SignUpHeader>
 
       <Form>
-      <div>
-        <label htmlFor= 'name' />
+      <div className= 'errorCont'>
+        <label htmlFor= 'name' />Name<br />
           <Field
             id= 'nameInput'
             type='text'
@@ -44,8 +48,8 @@ const SignUp = ({values, errors, touched, status}) => {
           />
           { touched.name && errors.name && ( <p className= 'error'>{errors.name}</p> ) }
       </div>
-        <div>
-          <label htmlFor= 'email' />
+        <div className= 'errorCont'>
+          <label htmlFor= 'email' />Email <br />
           <Field
             id= 'emailInput'
             type='email'
@@ -54,8 +58,8 @@ const SignUp = ({values, errors, touched, status}) => {
           />
           { touched.email && errors.email && ( <p className= 'error'>{errors.email}</p> ) }
         </div>
-        <div>
-          <label htmlFor= 'password' />
+        <div className= 'errorCont'>
+          <label htmlFor= 'password' /> Password <br />
             <Field
               id= 'passwordInput'
               type='password'
@@ -64,11 +68,11 @@ const SignUp = ({values, errors, touched, status}) => {
             />
             { touched.password && errors.password && ( <p className= 'error'>{errors.password}</p> ) }
         </div>
-        <button type= 'submit'>Submit</button>
+        <button type= 'submit'>Sign Up</button>
       </Form>
 
       <span>Already have an account? <Link to= 'login'>Log In</Link></span>
-    </div>
+    </LogInCont>
   )
 }
 

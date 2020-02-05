@@ -53,7 +53,7 @@ const Heading1= styled.h1`
   color: ${ props=>  props.color || fontStyles.h1Color };
   background-color: ${ props => props.backgroundColor };
   font-size: ${props => props.fontSize || fontStyles.h1Size};
-  margin: 5px auto 5px auto;
+  margin: 25px auto 5px auto;
   text-align: center;
 `;
 

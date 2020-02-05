@@ -18,7 +18,7 @@ const theme= {
 
 const fontStyles= {
   // **** FONT COLORS ****
-  pColor: theme.black,
+  pColor: theme.gray,
   linkColor: theme.orange,
   h1Color: theme.gray,
   h2Color: theme.gray,
