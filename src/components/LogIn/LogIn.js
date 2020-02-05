@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import * as Yup from 'yup';
+import {withFormik, Form, Field} from 'formik';
 
 //components
 
@@ -8,7 +10,7 @@ import axios from 'axios';
 import {Heading1} from '../../Styles/globalStyles';
 import './LogInStyles';
 
-const LogIn = () => {
+const LogIn = ( {values, errors, touched, status} ) => {
   //state
   const [formData, setFormData] = useState([
     {
@@ -18,49 +20,49 @@ const LogIn = () => {
   ]);
 
   //functions
+  useEffect(() => {
+    console.log('status has changed');
+    //this may be temporary code below, not sure... waiting on React 2
+  
+    //updata form data from status
+    status && setFormData( formData => [...formData, status] );
+    }, [status])
 
-  function handleChange(e){
-    setFormData( {...formData, [e.target.name]: e.target.value} );
-  }//end handleChange
 
-  function handleSubmit(e){
-    e.preventDefault();
-    axios
-    .get('')
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-  }//end handleSubmit
-  console.log(formData);  
   return (
     <div className= 'logInCont'>
       <Heading1>Log In</Heading1>
 
-      <form onSubmit= {handleSubmit}>
+      <Form>
         <label htmlFor= 'email' />
-        <input
-          onChange= {handleChange}
-          value= {formData.email}
+        <Field
           id= 'emailInput'
           type='email'
           name='email'
           placeholder= 'Email'
         />
-        <label htmlFor= 'password'>
-          <input
-            onChange= {handleChange}
-            value= {formData.password}
+        <label htmlFor= 'password' />
+          <Field
             id= 'passwordInput'
             type='password'
             name='password'
             placeholder= 'Password'
           />
-        </label>
-        <button type= 'submit'>Submit</button>
-      </form>
+        <button type= 'submit'>Log In</button>
+      </Form>
 
       <span>Don't have an account? <Link to= 'signup'>Sign-Up</Link></span>
     </div>
   )
 }
+const formikLogIn= withFormik({
 
-export default LogIn;
+  mapPropsToValues({email, password}){
+    return{
+      email: email || '',
+      password: password || ''
+    }//end return
+  },// end mapPropsToValues
+
+})(LogIn)
+export default formikLogIn;

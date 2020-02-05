@@ -26,8 +26,6 @@ const SignUp = ({values, errors, touched, status}) => {
 
   //updata form data from status
   status && setFormData( formData => [...formData, status] );
-
-
   }, [status])
 
   return (
