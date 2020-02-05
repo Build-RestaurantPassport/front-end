@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../axiosWithAuth';
 
 //components
 
@@ -12,7 +12,7 @@ const LogIn = () => {
   //state
   const [formData, setFormData] = useState([
     {
-      email: '',
+      username: '',
       password: ''
     }
   ]);
@@ -26,9 +26,16 @@ const LogIn = () => {
   function handleSubmit(e){
     e.preventDefault();
     axios
-    .get('')
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    .post('/', {
+
+      username: formData.username,
+      password: formData.password
+
+    }).then(res => {
+
+      
+
+    }).catch(err => console.log(err));
   }//end handleSubmit
   console.log(formData);  
   return (
@@ -36,14 +43,14 @@ const LogIn = () => {
       <Heading1>Log In</Heading1>
 
       <form onSubmit= {handleSubmit}>
-        <label htmlFor= 'email' />
+        <label htmlFor= 'username' />
         <input
           onChange= {handleChange}
-          value= {formData.email}
-          id= 'emailInput'
-          type='email'
-          name='email'
-          placeholder= 'Email'
+          value= {formData.username}
+          id= 'usernameInput'
+          type='text'
+          name='username'
+          placeholder= 'Username'
         />
         <label htmlFor= 'password'>
           <input

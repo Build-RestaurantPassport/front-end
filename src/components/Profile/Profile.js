@@ -7,6 +7,9 @@ import AddPhotos from './AddPhotos/AddPhotos';
 import AddReviews from './AddReviews/AddReviews';
 
 //styles
+import {Para} from '../../Styles/globalStyles';
+import './ProfileStyles';
+import axios from '../../axiosWithAuth';
 import {Heading3} from '../../Styles/globalStyles';
 import {
   ProfileLower, 
