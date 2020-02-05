@@ -12,7 +12,7 @@ const AddReviews = () => {
     <AddReviewsCont className= 'addReviews'>
       <img alt= 'icon' src={ReviewCardIcon} />
       <Para>You haven't written any reviews yet.</Para>
-      <button>Add Reviews</button>
+      <a href= '/profile'>Add Reviews</a>
     </AddReviewsCont>
   )
 }

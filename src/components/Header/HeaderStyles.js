@@ -39,7 +39,7 @@ const ProfileLogoImgCont= styled.div`
   border-radius: 50%;
   border: 1px solid #eee;
   left: 41%;
-  bottom: -40%;
+  bottom: -50%;
 `;
 
 const ProfileLogoImg= styled.img`

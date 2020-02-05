@@ -19,11 +19,12 @@ import {
 } from './ProfileStyles';
 
 const Profile = () => {
+
   return (
     <ProfileCont className='profileCont'>
       <Header />
       <ProfileMid className='profileMid'>
-        {/* <h3>Edit Profile - or - Add Photos (<i>dynamic</i>)</h3> */}
+
         <Heading3>Rebecca Spedding</Heading3>
         <p className='followersDisp'>
           <span>312</span> Followers | <span>220</span> Following
@@ -39,22 +40,23 @@ const Profile = () => {
         <ProfileNav>
           <ul>
             <li>
-              <NavLink to= '/profile/addreviews'>Reviews</NavLink>
+              {/* <NavLink to= '/profile/addreviews'>Reviews</NavLink> */}
+              <NavLink to= '/profile'>Reviews</NavLink>
               </li>
             <li>
-              <NavLink to= '/profile/addphotos'>photos</NavLink>
+              <NavLink to= '/profile'>photos</NavLink>
             </li>
           </ul>
         </ProfileNav>
         <ProfileDynamic className= 'profileDynamic'>
-          <Route path= '/profile/addreviews' component={AddReviews}/>
+
+            <AddReviews />
           
-          <Route path= '/profile/addphotos'>
-            <AddPhotos />
-          </Route>
+            {/* <AddPhotos /> */}
         </ProfileDynamic>
 
       </ProfileLower>
+      
     </ProfileCont>
   )
 }

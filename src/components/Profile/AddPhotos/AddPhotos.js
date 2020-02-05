@@ -11,7 +11,7 @@ const AddPhotos = () => {
     <div className= 'addPhotos'>
       <img alt= 'icon' src={PhotoIcon} />
       <p>You haven't uploaded photos yet.</p>
-      <button>Add Photo</button>
+      <a href= '#'>Add Photo</a>
     </div>
   )
 }
