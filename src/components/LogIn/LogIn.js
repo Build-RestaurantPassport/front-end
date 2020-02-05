@@ -9,7 +9,7 @@ import LeftArrow from '../../Assets/images/Chevron_Left.png';
 
 //styles
 import {Heading1} from '../../Styles/globalStyles';
-import {FormHeader, LogInCont, SubmitButton} from './LogInStyles';
+import {FormHeader, LogInCont, SubmitButton, BottomFormInfo, FormArrowImg} from './LogInStyles';
 
 const LogIn = ( {values, errors, touched, status} ) => {
   //state
@@ -33,12 +33,12 @@ const LogIn = ( {values, errors, touched, status} ) => {
   return (
     <LogInCont className= 'logInCont'>
       <FormHeader className= 'LogInHeader'>
-        <span><img alt= 'arrow-left' src= {LeftArrow} /></span>
+        <div><Link to= '/'><FormArrowImg alt= 'arrow-left' src= {LeftArrow} /></Link></div>
         <Heading1>Log In</Heading1>
       </FormHeader>
       <Form>
         <div className= 'errorCont'>
-          <label htmlFor= 'email' />Email<br />
+          <label htmlFor= 'email'>Email</label><br />
           <Field
             id= 'emailInput'
             type='email'
@@ -48,7 +48,7 @@ const LogIn = ( {values, errors, touched, status} ) => {
           { touched.email && errors.email && ( <p className= 'error'>{errors.email}</p> ) }
         </div>
         <div className= 'errorCont'>
-          <label htmlFor= 'password' />Password<br />
+          <label htmlFor= 'password'>Password</label><br />
             <Field
               id= 'passwordInput'
               type='password'
@@ -60,7 +60,7 @@ const LogIn = ( {values, errors, touched, status} ) => {
         <SubmitButton type= 'submit'>Log In</SubmitButton>
       </Form>
 
-      <span>Don't have an account? <Link to= 'signup'>Sign-Up</Link></span>
+      <BottomFormInfo className= 'bottomFormInfo'>Don't have an account? <Link to= 'signup'>Sign-Up</Link></BottomFormInfo>
     </LogInCont>
   )
 }

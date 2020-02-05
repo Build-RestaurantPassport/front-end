@@ -26,8 +26,6 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* <h3>Edit Profile Cover</h3> */}
-
       <ProfileLogoImgCont className= 'profileHeaderImgCont'>
         <ProfileLogoImg src= {profileHeaderImg} />
       </ProfileLogoImgCont>

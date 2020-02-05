@@ -20,10 +20,22 @@ const LogInCont= styled.div`
     .errorCont{
       width: 100%;
       margin: 0 0 5% 0;
+      padding: 0 0 7% 0;
+      height: 100%;
+      position: relative;
+    }
+
+    .error{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: red;
+      font-size: ${fontStyles.smallPSize};
     }
 
     label{
-      font-size: ${fontStyles.pSize};
+      font-size: ${fontStyles.smallPSize};
+      color: ${fontStyles.h5Color};
     }
 
     input{
@@ -37,7 +49,6 @@ const LogInCont= styled.div`
       border-bottom: 1px solid #aaa;
       color: ${fontStyles.pColor};
     }
-
   }
 `;
 
@@ -48,25 +59,44 @@ const FormHeader= styled.div`
   position: relative;
   width: 100%;
   margin: 0 0 5% 0;
-
-  span{
-    position: absolute;
-    left: 25px;
-    top: 50px;
-
-    img{
-      width: 100%;
-    }
   }
 `;
 
 const SubmitButton= styled.button`
   font-size: ${fontStyles.smallPSize};
-  padding: 0.5rem;
+  padding: 0.6rem;
   margin: 5% 0;
   width: 100%;
   background-color: ${btnStyles.bgColor};
   border-radius: 50px;
+
+  &:hover{
+    opacity: 0.8;
+    cursor: pointer;
+  }
 `;
 
-export {FormHeader, LogInCont, SubmitButton};
+const BottomFormInfo= styled.span`
+  font-size: ${fontStyles.extraSmallPSize};
+
+  a{
+    &:hover{
+      cursor: pointer;
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+  }
+`;
+
+const FormArrowImg= styled.img`
+  position: absolute;
+  top: 50px;
+  left: 25px;
+
+  &:hover{
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
+export {FormHeader, LogInCont, SubmitButton, BottomFormInfo, FormArrowImg};
