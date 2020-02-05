@@ -26,21 +26,6 @@ const SignUp = ({values, errors, touched, status}) => {
 
   //updata form data from status
   status && setFormData( formData => [...formData, status] );
-
-  function handleSubmit(e){
-    e.preventDefault();
-    axios
-    .get('', {
-
-      
-
-    }).then(res => {
-
-
-
-    }).catch(err => console.log(err))
-  }//end handleSubmit
-
   }, [status])
 
   return (
@@ -51,14 +36,14 @@ const SignUp = ({values, errors, touched, status}) => {
       </SignUpHeader>
       <Form>
       <div className= 'errorCont'>
-        <label htmlFor= 'name' />Name<br />
+        <label htmlFor= 'userName' />User Name<br />
           <Field
             id= 'nameInput'
             type='text'
-            name='name'
-            placeholder= 'Name'
+            name='userName'
+            placeholder= 'User Name'
           />
-          { touched.name && errors.name && ( <p className= 'error'>{errors.name}</p> ) }
+          { touched.userName && errors.userName && ( <p className= 'error'>{errors.userName}</p> ) }
       </div>
         <div className= 'errorCont'>
           <label htmlFor= 'email' />Email <br />
@@ -90,9 +75,9 @@ const SignUp = ({values, errors, touched, status}) => {
 
 
 const formikSignUp= withFormik( {
-  mapPropsToValues({name, email, password}){
+  mapPropsToValues({userName, email, password}){
     return{
-      name: name || '',
+      userName: userName || '',
       email: email || '',
       password: password || ''
     }//end return
@@ -100,7 +85,7 @@ const formikSignUp= withFormik( {
 
   //validation
   validationSchema: Yup.object().shape( {
-    name: Yup.string().min(3).max(25).required('Name is required.'),
+    userName: Yup.string().min(3).max(25).required('Name is required.'),
     email: Yup.string().min(12).max(30).required('Email is required.'),
     password: Yup.string().min(7).max(15).required('Password is required.')
   } ),//end validationSchema
