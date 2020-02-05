@@ -1,8 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
-import * as Yup from 'yup';
-import {withFormik, Form, Field} from 'formik';
+import axios from '../../axiosWithAuth';
 
 //components
 
@@ -14,7 +12,7 @@ const LogIn = ( {values, errors, touched, status} ) => {
   //state
   const [formData, setFormData] = useState([
     {
-      email: '',
+      username: '',
       password: ''
     }
   ]);

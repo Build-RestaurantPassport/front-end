@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../axiosWithAuth';
 import * as Yup from 'yup';
 import {Form, withFormik, Field} from 'formik';
 
@@ -14,7 +14,7 @@ import {SignUpHeader, LogInCont} from './SignUpStyles';
 const SignUp = ({values, errors, touched, status}) => {
   //state
   const [formData, setFormData]= useState([{
-    name: '',
+    username: '',
     email: '',
     password: ''
   }]);
@@ -34,7 +34,6 @@ const SignUp = ({values, errors, touched, status}) => {
         <span><img alt= 'arrow-left' src= {LeftArrow} /></span>
         <Heading1>Sign UP</Heading1>
       </SignUpHeader>
-
       <Form>
       <div className= 'errorCont'>
         <label htmlFor= 'name' />Name<br />
