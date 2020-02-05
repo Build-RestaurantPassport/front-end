@@ -3,10 +3,10 @@
 
 const theme= {
   // *** THEME COLORS ***
-  black: '#000',
+  black: '#333',
   white: '#eee',
   gray: '#999',
-  lightGray: '#aaa',
+  lightGray: '#ddd',
   orange: 'darkGoldenRod',
   blue: 'cornflowerBlue',
   green: '#219653',
@@ -25,7 +25,7 @@ const fontStyles= {
   h2Color: theme.gray,
   h3Color: theme.gray,
   h4Color: theme.gray,
-  h5Color: theme.gray,
+  h5Color: theme.black,
 
 // **** FONT SIZES ****
   extraSmallPSize: '0.8rem',
@@ -59,7 +59,7 @@ const footerStyles= {
 
 const formStyles= {
   color: theme.black,
-  bgColor: theme.gray
+  bgColor: theme.lightGray
 }//end formStyles
 
 export {

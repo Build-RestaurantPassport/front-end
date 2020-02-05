@@ -9,7 +9,7 @@ import LeftArrow from '../../Assets/images/Chevron_Left.png';
 
 //styles
 import {Heading1} from '../../Styles/globalStyles';
-import {FormHeader, SignUpCont, SubmitButton} from './SignUpStyles';
+import {FormHeader, SignUpCont, SubmitButton, BottomFormInfo, FormArrowImg} from './SignUpStyles';
 
 const SignUp = ({values, errors, touched, status}) => {
   //state
@@ -31,12 +31,12 @@ const SignUp = ({values, errors, touched, status}) => {
   return (
     <SignUpCont className= 'logInCont'>
       <FormHeader className= 'signUpHeader'>
-        <span><img alt= 'arrow-left' src= {LeftArrow} /></span>
+        <div><Link to= '/'><FormArrowImg alt= 'arrow-left' src= {LeftArrow} /></Link></div>
         <Heading1>Sign UP</Heading1>
       </FormHeader>
       <Form>
       <div className= 'errorCont'>
-        <label htmlFor= 'userName' />User Name<br />
+        <label htmlFor= 'userName'>User Name</label><br />
           <Field
             id= 'nameInput'
             type='text'
@@ -46,7 +46,7 @@ const SignUp = ({values, errors, touched, status}) => {
           { touched.userName && errors.userName && ( <p className= 'error'>{errors.userName}</p> ) }
       </div>
         <div className= 'errorCont'>
-          <label htmlFor= 'email' />Email <br />
+          <label htmlFor= 'email'>Email</label> <br />
           <Field
             id= 'emailInput'
             type='email'
@@ -56,7 +56,7 @@ const SignUp = ({values, errors, touched, status}) => {
           { touched.email && errors.email && ( <p className= 'error'>{errors.email}</p> ) }
         </div>
         <div className= 'errorCont'>
-          <label htmlFor= 'password' /> Password <br />
+          <label htmlFor= 'password'>Password</label> <br />
             <Field
               id= 'passwordInput'
               type='password'
@@ -68,7 +68,7 @@ const SignUp = ({values, errors, touched, status}) => {
         <SubmitButton type= 'submit'>Sign Up</SubmitButton>
       </Form>
 
-      <span>Already have an account? <Link to= 'login'>Log In</Link></span>
+      <BottomFormInfo>Already have an account? <Link to= 'login'>Log In</Link></BottomFormInfo>
     </SignUpCont>
   )
 }
