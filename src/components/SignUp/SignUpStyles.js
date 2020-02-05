@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import {fontStyles} from '../../Styles/styleVars';
+import {fontStyles, btnStyles} from '../../Styles/styleVars';
 import '../../Styles/globalStyles';
 
-const LogInCont= styled.div`
+const SignUpCont= styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -17,6 +17,10 @@ const LogInCont= styled.div`
     align-items: center;
     width: 100%;
 
+    .errorCont{
+      width: 100%;
+    }
+
     label{
       font-size: ${fontStyles.pSize};
     }
@@ -24,6 +28,7 @@ const LogInCont= styled.div`
     input{
       font-size: ${fontStyles.pSize};
       padding: 5px;
+      width: 100%;
       border-left: none;
       border-right: none;
       border-top: none;
@@ -34,7 +39,7 @@ const LogInCont= styled.div`
   }
 `;
 
-const SignUpHeader= styled.div`
+const FormHeader= styled.div`
   display: flex;
   justify-content; center;
   align-items: center;
@@ -49,12 +54,14 @@ const SignUpHeader= styled.div`
 
     img{
       width: 100%;
+      margin: 0 0 5% 0;
     }
   }
 `;
 
+const SubmitButton= styled.button`
+
+`;
 
 
-
-
-export {SignUpHeader, LogInCont};
+export {FormHeader, SignUpCont, SubmitButton};

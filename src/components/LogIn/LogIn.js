@@ -5,10 +5,11 @@ import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 
 //components
+import LeftArrow from '../../Assets/images/Chevron_Left.png';
 
 //styles
 import {Heading1} from '../../Styles/globalStyles';
-import './LogInStyles';
+import {FormHeader, LogInCont, SubmitButton} from './LogInStyles';
 
 const LogIn = ( {values, errors, touched, status} ) => {
   //state
@@ -30,12 +31,14 @@ const LogIn = ( {values, errors, touched, status} ) => {
 
 
   return (
-    <div className= 'logInCont'>
-      <Heading1>Log In</Heading1>
-
+    <LogInCont className= 'logInCont'>
+      <FormHeader className= 'LogInHeader'>
+        <span><img alt= 'arrow-left' src= {LeftArrow} /></span>
+        <Heading1>Log In</Heading1>
+      </FormHeader>
       <Form>
         <div className= 'errorCont'>
-          <label htmlFor= 'email' />
+          <label htmlFor= 'email' />Email<br />
           <Field
             id= 'emailInput'
             type='email'
@@ -45,7 +48,7 @@ const LogIn = ( {values, errors, touched, status} ) => {
           { touched.email && errors.email && ( <p className= 'error'>{errors.email}</p> ) }
         </div>
         <div className= 'errorCont'>
-          <label htmlFor= 'password' />
+          <label htmlFor= 'password' />Password<br />
             <Field
               id= 'passwordInput'
               type='password'
@@ -54,11 +57,11 @@ const LogIn = ( {values, errors, touched, status} ) => {
             />
             { touched.password && errors.password && ( <p className= 'error'>{errors.password}</p> ) }
         </div>
-        <button type= 'submit'>Log In</button>
+        <SubmitButton type= 'submit'>Log In</SubmitButton>
       </Form>
 
       <span>Don't have an account? <Link to= 'signup'>Sign-Up</Link></span>
-    </div>
+    </LogInCont>
   )
 }
 const formikLogIn= withFormik({
