@@ -6,6 +6,7 @@ const theme= {
   black: '#000',
   white: '#eee',
   gray: '#999',
+  lightGray: '#aaa',
   orange: 'darkGoldenRod',
   blue: 'cornflowerBlue',
   green: '#219653',
@@ -39,7 +40,7 @@ const fontStyles= {
 }//end fontStyles
 
 const btnStyles= {
-  bgColor: theme.orange,
+  bgColor: theme.green,
   fontColor: fontStyles.pColor,
   fontSize: fontStyles.pSize
 }//end btnStyles
@@ -56,11 +57,17 @@ const footerStyles= {
   backgroundColor: theme.gray
 }//end footerStyles
 
+const formStyles= {
+  color: theme.black,
+  bgColor: theme.gray
+}//end formStyles
+
 export {
   theme, 
   fontStyles,
   btnStyles,
   cardStyles,
   headerStyles,
-  footerStyles
+  footerStyles,
+  formStyles
 };

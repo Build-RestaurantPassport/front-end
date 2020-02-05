@@ -9,7 +9,7 @@ import LeftArrow from '../../Assets/images/Chevron_Left.png';
 
 //styles
 import {Heading1} from '../../Styles/globalStyles';
-import {SignUpHeader, LogInCont} from './SignUpStyles';
+import {FormHeader, SignUpCont, SubmitButton} from './SignUpStyles';
 
 const SignUp = ({values, errors, touched, status}) => {
   //state
@@ -29,11 +29,11 @@ const SignUp = ({values, errors, touched, status}) => {
   }, [status])
 
   return (
-    <LogInCont className= 'logInCont'>
-      <SignUpHeader className= 'signUpHeader'>
+    <SignUpCont className= 'logInCont'>
+      <FormHeader className= 'signUpHeader'>
         <span><img alt= 'arrow-left' src= {LeftArrow} /></span>
         <Heading1>Sign UP</Heading1>
-      </SignUpHeader>
+      </FormHeader>
       <Form>
       <div className= 'errorCont'>
         <label htmlFor= 'userName' />User Name<br />
@@ -65,11 +65,11 @@ const SignUp = ({values, errors, touched, status}) => {
             />
             { touched.password && errors.password && ( <p className= 'error'>{errors.password}</p> ) }
         </div>
-        <button type= 'submit'>Sign Up</button>
+        <SubmitButton type= 'submit'>Sign Up</SubmitButton>
       </Form>
 
       <span>Already have an account? <Link to= 'login'>Log In</Link></span>
-    </LogInCont>
+    </SignUpCont>
   )
 }
 
