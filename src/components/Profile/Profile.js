@@ -47,11 +47,9 @@ const Profile = () => {
           </ul>
         </ProfileNav>
         <ProfileDynamic className= 'profileDynamic'>
-          {/* <Route path= '/profile/:addreviews'> */}
-            <AddReviews />
-          {/* </Route> */}
-
-          <Route path= '/profile/:addphotos'>
+          <Route path= '/profile/addreviews' component={AddReviews}/>
+          
+          <Route path= '/profile/addphotos'>
             <AddPhotos />
           </Route>
         </ProfileDynamic>

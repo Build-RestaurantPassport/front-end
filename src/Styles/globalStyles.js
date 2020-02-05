@@ -97,6 +97,18 @@ const Para= styled.p`
   margin: 5px;
 `;
 
+const SmallPara= styled.p`
+  color: ${props => props.color || fontStyles.pColor};
+  font-size: ${props => props.fontSize || fontStyles.smallPSize};
+  margin: 5px;
+`;
+
+const ExtraSmallPara= styled.p`
+  color: ${props => props.color || fontStyles.pColor};
+  font-size: ${props => props.fontSize || fontStyles.extraSmallPSize};
+  margin: 5px;
+`;
+
 const Anchor= styled.span`
   color: ${props => props.color || fontStyles.linkColor};
   font-size: ${props => props.fontSize || fontStyles.linkSize};
@@ -125,6 +137,8 @@ export {
   Heading4,
   Heading5,
   Para,
+  SmallPara,
+  ExtraSmallPara,
   Anchor,
   AppCont
 };
