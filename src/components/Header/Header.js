@@ -21,7 +21,7 @@ const Header = () => {
     <HeaderCont className= 'headerCont'>
       <ProfileBgImg alt= 'background' src= {ProfileBg} />
       <div>
-        <Link to= 'restaurants'>
+        <Link to= '/restaurants'>
           <ArrowImg alt= 'arrow' src= {RightArrow} />
         </Link>
       </div>
