@@ -37,7 +37,7 @@ const GlobalStyle= createGlobalStyle`
   const AppCont= styled.div`
     position: relative;
     margin: 0 auto;
-    padding: 2% 4%;
+    padding: 0;
     height: 100vh;
     max-width: 100%;
     display: flex;
@@ -53,7 +53,7 @@ const Heading1= styled.h1`
   color: ${ props=>  props.color || fontStyles.h1Color };
   background-color: ${ props => props.backgroundColor };
   font-size: ${props => props.fontSize || fontStyles.h1Size};
-  margin: 5px auto 5px auto;
+  margin: 25px auto 5px auto;
   text-align: center;
 `;
 
@@ -97,6 +97,18 @@ const Para= styled.p`
   margin: 5px;
 `;
 
+const SmallPara= styled.p`
+  color: ${props => props.color || fontStyles.pColor};
+  font-size: ${props => props.fontSize || fontStyles.smallPSize};
+  margin: 5px;
+`;
+
+const ExtraSmallPara= styled.p`
+  color: ${props => props.color || fontStyles.pColor};
+  font-size: ${props => props.fontSize || fontStyles.extraSmallPSize};
+  margin: 5px;
+`;
+
 const Anchor= styled.span`
   color: ${props => props.color || fontStyles.linkColor};
   font-size: ${props => props.fontSize || fontStyles.linkSize};
@@ -125,6 +137,8 @@ export {
   Heading4,
   Heading5,
   Para,
+  SmallPara,
+  ExtraSmallPara,
   Anchor,
   AppCont
 };

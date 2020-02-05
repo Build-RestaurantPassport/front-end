@@ -18,7 +18,7 @@ const theme= {
 
 const fontStyles= {
   // **** FONT COLORS ****
-  pColor: theme.black,
+  pColor: theme.gray,
   linkColor: theme.orange,
   h1Color: theme.gray,
   h2Color: theme.gray,
@@ -27,12 +27,14 @@ const fontStyles= {
   h5Color: theme.gray,
 
 // **** FONT SIZES ****
+  extraSmallPSize: '0.8rem',
+  smallPSize: '1rem',
   pSize: '1.4rem',
   linkSize: '1.4rem',
   h1Size: '2.4rem',
   h2Size: '1.9rem',
   h3Size: '1.8rem',
-  h4Size: '1.7rem',
+  h4Size: '1.1rem',
   h5Size: '1.6rem',
 }//end fontStyles
 

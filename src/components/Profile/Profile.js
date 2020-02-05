@@ -1,40 +1,63 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
+import {NavLink, Route} from 'react-router-dom';
 
 //components
 import Header from '../Header/Header';
-import ReviewCardDefault from '../../Assets/images/review_card.png';
+import AddPhotos from './AddPhotos/AddPhotos';
+import AddReviews from './AddReviews/AddReviews';
+
 //styles
-import {Para} from '../../Styles/globalStyles';
-import './ProfileStyles';
+import {Heading3} from '../../Styles/globalStyles';
+import {
+  ProfileLower, 
+  ProfileButton, 
+  ButtonRow, 
+  ProfileCont, 
+  ProfileMid,
+  ProfileNav,
+  ProfileDynamic
+} from './ProfileStyles';
 
 const Profile = () => {
+
   return (
-    <div className= 'headerCont'>
+    <ProfileCont className='profileCont'>
       <Header />
-      <div className= 'profileMid'>
-        <h3>Edit Profile</h3>
-        <p className= 'followersDisp'>
-          <span>0</span> Followers | <span>0</span> Following
+      <ProfileMid className='profileMid'>
+
+        <Heading3>Rebecca Spedding</Heading3>
+        <p className='followersDisp'>
+          <span>312</span> Followers | <span>220</span> Following
         </p>
-        <div className= 'buttonRow'>
-          <button>Add Reviews</button>
-          <button>Add Photos</button>
-          <button>Edit Profile</button>
-        </div>
-      </div>  
-      <div className= 'profileLower'>
-        <nav>
+        <ButtonRow className='buttonRow'>
+          <ProfileButton>Add Reviews</ProfileButton>
+          <ProfileButton>Add Photos</ProfileButton>
+          <ProfileButton>Edit Profile</ProfileButton>
+        </ButtonRow>
+      </ProfileMid>
+
+      <ProfileLower className='profileLower'>
+        <ProfileNav>
           <ul>
-            <li><a href= '#'>Reviews</a></li>
-            <li><a href= '#'>photos</a></li>
+            <li>
+              {/* <NavLink to= '/profile/addreviews'>Reviews</NavLink> */}
+              <NavLink to= '/profile'>Reviews</NavLink>
+              </li>
+            <li>
+              <NavLink to= '/profile'>photos</NavLink>
+            </li>
           </ul>
-        </nav>
-        <img src= {ReviewCardDefault} />
-        <p>You haven't written any reviews yet.</p>
-        <a href= '#'>Add Reviews</a>
-      </div>
-    </div> 
+        </ProfileNav>
+        <ProfileDynamic className= 'profileDynamic'>
+
+            <AddReviews />
+          
+            {/* <AddPhotos /> */}
+        </ProfileDynamic>
+
+      </ProfileLower>
+      
+    </ProfileCont>
   )
 }
 

@@ -9,7 +9,7 @@ import Restaurants from './components/Restaurants/Restaurants';
 
 //styles
 import './Styles/styleVars';
-import { GlobalStyle, AppCont, Heading2, Para } from './Styles/globalStyles';
+import { GlobalStyle, AppCont } from './Styles/globalStyles';
 
 function App() {
   return (
