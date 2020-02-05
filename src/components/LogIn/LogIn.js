@@ -1,6 +1,8 @@
 import React, { useState , useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import axios from '../../axiosWithAuth';
+import {withFormik, Form, Field} from 'formik';
+import * as Yup from 'yup';
 
 //components
 
@@ -12,7 +14,7 @@ const LogIn = ( {values, errors, touched, status} ) => {
   //state
   const [formData, setFormData] = useState([
     {
-      username: '',
+      email: '',
       password: ''
     }
   ]);
@@ -32,20 +34,26 @@ const LogIn = ( {values, errors, touched, status} ) => {
       <Heading1>Log In</Heading1>
 
       <Form>
-        <label htmlFor= 'email' />
-        <Field
-          id= 'emailInput'
-          type='email'
-          name='email'
-          placeholder= 'Email'
-        />
-        <label htmlFor= 'password' />
+        <div className= 'errorCont'>
+          <label htmlFor= 'email' />
           <Field
-            id= 'passwordInput'
-            type='password'
-            name='password'
-            placeholder= 'Password'
+            id= 'emailInput'
+            type='email'
+            name='email'
+            placeholder= 'Email'
           />
+          { touched.email && errors.email && ( <p className= 'error'>{errors.email}</p> ) }
+        </div>
+        <div className= 'errorCont'>
+          <label htmlFor= 'password' />
+            <Field
+              id= 'passwordInput'
+              type='password'
+              name='password'
+              placeholder= 'Password'
+            />
+            { touched.password && errors.password && ( <p className= 'error'>{errors.password}</p> ) }
+        </div>
         <button type= 'submit'>Log In</button>
       </Form>
 
@@ -61,6 +69,29 @@ const formikLogIn= withFormik({
       password: password || ''
     }//end return
   },// end mapPropsToValues
+
+  //validation
+  validationSchema: Yup.object().shape( {
+    email: Yup.string().min(12).max(30).required('Email is required.'),
+    password: Yup.string().min(7).max(15).required('Password is required.')
+  } ),//end validationSchema
+
+  handleSubmit(values, {resetForm, setStatus}){
+    //   //un-comment when you need it.. 
+    //   axios
+    //   .get()
+    //   .then(res => {
+    //     console.log('Success!', res);
+    //     setStatus(res.data);
+    //     resetForm();
+    //   })
+    //   .catch(err => {console.log(err.response);})
+    
+    // temporary code below waiting on React 2 to do his thing here. delete setStatus and resetForm below when ready
+      setStatus(values);
+      resetForm();
+    }//end handleSubmit
+
 
 })(LogIn)
 export default formikLogIn;
