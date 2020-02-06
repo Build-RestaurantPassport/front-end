@@ -92,6 +92,7 @@ const RatingDisp= styled.div`
 
 const MainDispCont= styled.div`
   position: relative;
+  padding: 5% 0 0 0;
 `;
 
 export {
