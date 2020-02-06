@@ -56,16 +56,24 @@ const ProfileLogoImgCont= styled.div`
   border-radius: 50%;
   border: 1px solid #eee;
   position: absolute;
-  left: ${
-    window.innerWidth - '50%'
-  };
-  bottom: -20%;
+  left: calc(100vw - 60%);
+  bottom: -30%;
 
-  @media only screen and (min-width: 430px){
-    bottom: -20%;
+  @media only screen and (min-width: 375px){
+    bottom: -40%;
   }
-  @media only screen and (min-width: 480px){
-    bottom: -15%;
+  @media only screen and (min-width: 440px){
+    bottom: -50%;
+  }
+  @media only screen and (min-width: 485px){
+    bottom: -60%;
+  }
+  @media only screen and (min-width: 535px){
+    bottom: -65%;
+  }
+  @media only screen and (min-width: 575px){
+    bottom: -20%;
+    left: calc(100vw - 57.8%);
   }
 `;
 
