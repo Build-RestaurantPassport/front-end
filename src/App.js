@@ -17,11 +17,11 @@ function App() {
     <AppCont className="App">
       <GlobalStyle />  {/**contains body reset stuff, box-sizing etc..  */}
 
-      {/* <Route exact path='/'>
-        <Entry />
-      </Route> */}
+      <Route exact path='/'>
+        <LogIn />
+      </Route>
 
-      <Route exact path='/login'>
+      <Route path='/login'>
         <LogIn />
       </Route>
 
@@ -33,7 +33,7 @@ function App() {
         <Profile />
       </Route>
 
-      <Route exact path= '/restaurants'>
+      <Route exact path='/restaurants'>
         <Restaurants />
       </Route>
 
