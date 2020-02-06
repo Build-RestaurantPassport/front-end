@@ -57,20 +57,16 @@ const ProfileLogoImgCont= styled.div`
   border: 1px solid #eee;
   position: absolute;
   left: ${
-    window.innerWidth- '50%'
+    window.innerWidth - '50%'
   };
-  bottom: -40%;
+  bottom: -20%;
 
   @media only screen and (min-width: 430px){
-    bottom: -50%;
-  }
-  @media only screen and (min-width: 480px){
-    bottom: -60%;
-  }
-  @media only screen and (min-width: 575px){
     bottom: -20%;
   }
-
+  @media only screen and (min-width: 480px){
+    bottom: -15%;
+  }
 `;
 
 const ProfileLogoImg= styled.img`

@@ -3,7 +3,9 @@ import '../../Styles/styleVars';
 
 const ProfileCont= styled.div`
   width: 100%;
+  max-width: 100%;
   height: 100vh;
+  min-height: 100%;
 `;
 
 const ProfileMid= styled.div`
@@ -33,7 +35,6 @@ const ProfileButton= styled.button`
 
   &:hover{
     opacity: 0.8;
-    cursor: pointer;
   }
 `;
 

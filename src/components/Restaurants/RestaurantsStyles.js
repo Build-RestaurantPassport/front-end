@@ -48,6 +48,7 @@ const FavoritesRow= styled.div`
 const FavoritesNav= styled.div`
   width: 100%;
   padding: 0 2%;
+  margin-bottom: 3%;
   display: flex;
   justify-content: space-between;
 

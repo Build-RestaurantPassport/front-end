@@ -3,13 +3,13 @@ import {NavLink, Route} from 'react-router-dom';
 
 //components
 import Header from '../Header/Header';
-import AddPhotos from './AddPhotos/AddPhotos';
+// import AddPhotos from './AddPhotos/AddPhotos';
 import AddReviews from './AddReviews/AddReviews';
 
 //styles
-import {Para} from '../../Styles/globalStyles';
+import '../../Styles/globalStyles';
 import './ProfileStyles';
-import axios from '../../axiosWithAuth';
+// import axios from '../../axiosWithAuth';
 import {Heading3} from '../../Styles/globalStyles';
 import {
   ProfileLower, 
