@@ -52,7 +52,7 @@ const Restaurants = () => {
           setData(res.data);
           setSearchResults(res.data);
           setLoading(false);
-        }, 4000);
+        }, 1000);
 
       })
       .catch(err => { console.log(err); })
