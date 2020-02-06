@@ -39,6 +39,7 @@ const GlobalStyle= createGlobalStyle`
     margin: 0 auto;
     padding: 0;
     height: 100vh;
+    min-height: 100%;
     max-width: 100%;
     display: flex;
     flex-direction: column;

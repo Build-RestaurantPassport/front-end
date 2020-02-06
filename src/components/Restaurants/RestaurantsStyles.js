@@ -48,6 +48,7 @@ const FavoritesRow= styled.div`
 const FavoritesNav= styled.div`
   width: 100%;
   padding: 0 2%;
+  margin-bottom: 3%;
   display: flex;
   justify-content: space-between;
 
@@ -91,6 +92,7 @@ const RatingDisp= styled.div`
 
 const MainDispCont= styled.div`
   position: relative;
+  padding: 5% 0 0 0;
 `;
 
 export {

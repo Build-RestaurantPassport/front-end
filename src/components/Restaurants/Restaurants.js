@@ -16,7 +16,7 @@ import FavImg4 from '../../Assets/images/Best_Burger_Card.png';
 import Rest1 from '../../Assets/images/rest_profile_card_elrin.png';
 
 //styles
-import { Heading4, SmallPara, ExtraSmallPara } from '../../Styles/globalStyles';
+import { Heading4, SmallPara } from '../../Styles/globalStyles';
 import {
   SearchCont,
   RestaurantsHeader,
@@ -40,7 +40,7 @@ const Restaurants = () => {
       return ele.city.toLowerCase().includes(searchTerm.toLowerCase());
     })
     setSearchResults(results);
-  }, [searchTerm])
+  }, [searchTerm, data])
 
   //initial API call
   useEffect(() => {
