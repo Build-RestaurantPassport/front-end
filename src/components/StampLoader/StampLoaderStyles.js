@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {fontStyles} from '../../../../Styles/styleVars';
+import {fontStyles} from '../../Styles/styleVars';
 
 const SpinnerCont= styled.div`
   width: 100%;

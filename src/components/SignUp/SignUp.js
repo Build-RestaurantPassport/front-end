@@ -69,6 +69,8 @@ const SignUp = ({values, errors, touched, status}) => {
       </Form>
 
       <BottomFormInfo>Already have an account? <Link to= 'login'>Log In</Link></BottomFormInfo>
+      {/* temporary link to get into site until signUp/logIn gets hooked up */}
+      <Link to= '/profile'>To Profile></Link>
     </SignUpCont>
   )
 }
