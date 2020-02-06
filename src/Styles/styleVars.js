@@ -4,7 +4,7 @@
 const theme= {
   // *** THEME COLORS ***
   black: '#333',
-  white: '#eee',
+  white: '#fff',
   gray: '#999',
   lightGray: '#ddd',
   orange: 'darkGoldenRod',
