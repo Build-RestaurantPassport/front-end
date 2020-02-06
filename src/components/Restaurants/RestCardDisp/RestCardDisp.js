@@ -1,17 +1,17 @@
 import React from 'react';
 
 //styles
-import { Heading4, SmallPara, ExtraSmallPara } from '../../../Styles/globalStyles';
+import { Heading4, ExtraSmallPara } from '../../../Styles/globalStyles';
 import {
   RestInfo,
   RestCard,
   RatingDisp,
-} from './RestCardStyles';
+} from './RestCardDispStyles';
 
-const RestCardDisp = ({data}) => {
+const RestCardDisp = ({data, image}) => {
   return (
     <RestCard className='card'>
-      <img alt='restaurant' src={data.image} />
+      <img alt='restaurant' src={image} />
       <RestInfo className='restInfo'>
         <Heading4>{data.name}</Heading4>
         <ExtraSmallPara>
