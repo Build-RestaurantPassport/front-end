@@ -6,7 +6,7 @@ import axios from 'axios'
 import Menu from '../../Assets/images/Menu.png';
 import LocationIcon from '../../Assets/images/Location.png';
 import StampLoader from '../StampLoader/StampLoader';
-import RestCardDisp from './RestCard/RestCard';
+import RestCardDisp from './RestCardDisp/RestCardDisp';
 
 //images
 import FavImg1 from '../../Assets/images/Best_Burger_Card.png';
@@ -49,7 +49,7 @@ const Restaurants = () => {
       .get('https://bw-restaurant-pass.herokuapp.com/api/cities/all/rests')
       .then(res => {
         // console.log(res.data);
-        let timeout = window.setTimeout(() => {
+        window.setTimeout(() => {
           setData(res.data);
           setSearchResults(res.data);
           setLoading(false);
@@ -135,7 +135,7 @@ const Restaurants = () => {
               return (
                 //card component
                 <Link key={i} to='#'>
-                  <RestCardDisp data= {ele}/>
+                  <RestCardDisp image= {Rest1} data= {ele}/>
                 </Link>
               )/**end return */
             })
