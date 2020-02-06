@@ -89,6 +89,10 @@ const RatingDisp= styled.div`
   font-size: ${fontStyles.smallPSize};
 `;
 
+const MainDispCont= styled.div`
+  position: relative;
+`;
+
 export {
   RestCard,
   RestInfo,
@@ -98,5 +102,6 @@ export {
   FavImgCont,
   FavoritesRow,
   FavoritesNav,
-  RatingDisp
+  RatingDisp,
+  MainDispCont
 };
