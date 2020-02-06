@@ -49,7 +49,7 @@ const Restaurants = () => {
       .get('https://bw-restaurant-pass.herokuapp.com/api/cities/all/rests')
       .then(res => {
         // console.log(res.data);
-        window.setTimeout(() => {
+        let timeout= window.setTimeout(() => {
           setData(res.data);
           setSearchResults(res.data);
           setLoading(false);

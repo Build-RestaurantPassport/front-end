@@ -11,10 +11,10 @@ const StampLoader = () => {
   return (
     
     <SpinnerCont className= 'spinnerCont'>
-      <Tween to= {{ease: 'linear', duration: '5', rotation: '+=360', transformOrigin: '50% 50%', repeat: -1 }}>
+      <Tween to= {{ease: 'linear', duration: 5, opacity: 0.5,  rotation: '+=360', transformOrigin: '50% 50%', repeat: -1, stagger: 0.8}}>
           <Spinner alt= 'Loader' src= {Loader} />
       </Tween>
-      <Tween to= { { duration: 2, ease: 'slow', opacity: 0, repeat: -1  } }>
+      <Tween to= { { duration: 5, ease: 'slow', opacity: 0, repeat: -1  } }>
         <p>Fetching Restaurants...</p>
       </Tween>
     </SpinnerCont>

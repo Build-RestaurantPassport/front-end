@@ -7,6 +7,7 @@ const SpinnerCont= styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 5%;
 
   p{
     font-size: ${fontStyles.smallPSize}
@@ -14,7 +15,7 @@ const SpinnerCont= styled.div`
 `;
 
 const Spinner= styled.img`
-  width: 20%;
+  width: 10%;
 `;
 
 export {Spinner, SpinnerCont};
