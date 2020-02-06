@@ -2,7 +2,7 @@ import React from 'react';
 import {Tween} from 'react-gsap';
 
 //components
-import Loader from '../../../images/passport_stamp.png';
+import Loader from '../../Assets/images/passport_stamp.png';
 
 //styles
 import {Spinner, SpinnerCont} from './StampLoaderStyles';

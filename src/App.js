@@ -17,15 +17,17 @@ function App() {
     <AppCont className="App">
       <GlobalStyle />  {/**contains body reset stuff, box-sizing etc..  */}
 
-      <Route exact path='/'>
+      {/* <Route exact path='/'>
         <Entry />
-      </Route>
+      </Route> */}
       <Route exact path='/login'>
         <LogIn />
       </Route>
+
       <Route exact path='/signup'>
         <SignUp />
       </Route>
+      
       <Route exact path='/profile'>
         <Profile />
       </Route>

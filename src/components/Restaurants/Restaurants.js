@@ -5,26 +5,25 @@ import axios from 'axios'
 //components
 import Menu from '../../Assets/images/Menu.png';
 import LocationIcon from '../../Assets/images/Location.png';
-import StampLoader from '../../Assets/images/Loaders/StampLoader/StampLoader';
+import StampLoader from '../StampLoader/StampLoader';
+import RestCardDisp from './RestCard/RestCard';
+
+//images
 import FavImg1 from '../../Assets/images/Best_Burger_Card.png';
 import FavImg2 from '../../Assets/images/Best_Seafood_Card.png';
 import FavImg3 from '../../Assets/images/Best_Sushi_Card.png';
 import FavImg4 from '../../Assets/images/Best_Burger_Card.png';
 import Rest1 from '../../Assets/images/rest_profile_card_elrin.png';
 
-
 //styles
 import { Heading4, SmallPara, ExtraSmallPara } from '../../Styles/globalStyles';
 import {
-  RestInfo,
-  RestCard,
   SearchCont,
   RestaurantsHeader,
   FavoritesNav,
   FavoritesRow,
   FavDispCont,
   FavImgCont,
-  RatingDisp,
   MainDispCont
 } from './RestaurantsStyles';
 
@@ -33,8 +32,9 @@ const Restaurants = () => {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [loading, setLoading]= useState(false);
+  const [loading, setLoading] = useState(false);
 
+  //get search filter results
   useEffect(() => {
     const results = data.filter(ele => {
       return ele.city.toLowerCase().includes(searchTerm.toLowerCase());
@@ -42,6 +42,7 @@ const Restaurants = () => {
     setSearchResults(results);
   }, [searchTerm])
 
+  //initial API call
   useEffect(() => {
     setLoading(true);
     axios
@@ -53,13 +54,12 @@ const Restaurants = () => {
           setSearchResults(res.data);
           setLoading(false);
         }, 1000);
-
       })
       .catch(err => { console.log(err); })
   }, [])
 
   //functions
-
+  //handleChange for search/filter input
   function handleChange(e) {
     // console.log(e.target.value);
     setSearchTerm(e.target.value);
@@ -128,34 +128,17 @@ const Restaurants = () => {
 
       <MainDispCont className='mainDispCont'>
         {/* display cards */}
-       
-          {
-            loading === true ? <StampLoader /> :
-          searchResults.map((ele, i) => {
-            return (
-              
-              <Link key={i} to='#'>
-                <RestCard className='card'>
-                  <img alt='restaurant' src={Rest1} />
-                  <RestInfo className='restInfo'>
-                    <Heading4>{ele.name}</Heading4>
-                    <ExtraSmallPara>
-                      {ele.notes}
-                    </ExtraSmallPara>
-                    <ExtraSmallPara>
-                      {ele.city}
-                    </ExtraSmallPara>
-                    <ExtraSmallPara>
-                      {ele.website}
-                    </ExtraSmallPara>
-                  </RestInfo>
-                  <RatingDisp className='ratingDisp'>
-                    {ele.rating}
-                  </RatingDisp>
-                </RestCard>
-              </Link>
-            )/**end return */
-          })
+
+        {/* conditional render of loader image */}
+        {loading === true ? <StampLoader /> :
+            searchResults.map((ele, i) => {
+              return (
+                //card component
+                <Link key={i} to='#'>
+                  <RestCardDisp data= {ele}/>
+                </Link>
+              )/**end return */
+            })
         }
       </MainDispCont> {/* end mainDispCont */}
     </div> // end restaurantsCont
