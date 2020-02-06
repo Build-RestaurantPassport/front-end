@@ -13,6 +13,11 @@ const ProfileMid= styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  @media only screen and (min-width: 480px){
+    padding: 25% 0 0 0;
+    height: 30%;
+  }
 `;
 
 const ButtonRow= styled.div`
@@ -39,6 +44,10 @@ const ProfileLower= styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  @media only screen and (min-width: 480px){
+    height: 20%;
+  }
 `;
 
 const ProfileNav= styled.nav`

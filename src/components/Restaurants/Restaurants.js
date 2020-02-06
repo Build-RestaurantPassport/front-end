@@ -5,20 +5,13 @@ import axios from 'axios'
 //components
 import Menu from '../../Assets/images/Menu.png';
 import LocationIcon from '../../Assets/images/Location.png';
+import StampLoader from '../../Assets/images/Loaders/StampLoader/StampLoader';
 import FavImg1 from '../../Assets/images/Best_Burger_Card.png';
 import FavImg2 from '../../Assets/images/Best_Seafood_Card.png';
 import FavImg3 from '../../Assets/images/Best_Sushi_Card.png';
 import FavImg4 from '../../Assets/images/Best_Burger_Card.png';
 import Rest1 from '../../Assets/images/rest_profile_card_elrin.png';
-// import Rest2 from '../../Assets/images/rest_profile_card_ham.png';
-// import Rest3 from '../../Assets/images/rest_profile_card_kin.png';
-// import Rest4 from '../../Assets/images/rest_profile_card_ledip.png';
-// import Rest5 from '../../Assets/images/rest_profile_card_liltav.png';
-// import Rest6 from '../../Assets/images/rest_profile_card_may.png';
-// import Rest7 from '../../Assets/images/rest_profile_card_oldebbitt.png';
-// import Rest8 from '../../Assets/images/rest_profile_card_pom.png';
-// import Rest9 from '../../Assets/images/rest_profile_card_salt.png';
-// import Rest10 from '../../Assets/images/rest_profile_card_zay.png';
+
 
 //styles
 import { Heading4, SmallPara, ExtraSmallPara } from '../../Styles/globalStyles';
@@ -31,31 +24,38 @@ import {
   FavoritesRow,
   FavDispCont,
   FavImgCont,
-  RatingDisp
+  RatingDisp,
+  MainDispCont
 } from './RestaurantsStyles';
 
 const Restaurants = () => {
   //state
-  const [data, setData]= useState([]);
+  const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading]= useState(false);
 
   useEffect(() => {
-    const results= data.filter( ele => {
-      return ele.city.toLowerCase().includes( searchTerm.toLowerCase() );
-    } )
-    setSearchResults( results );
+    const results = data.filter(ele => {
+      return ele.city.toLowerCase().includes(searchTerm.toLowerCase());
+    })
+    setSearchResults(results);
   }, [searchTerm])
 
   useEffect(() => {
+    setLoading(true);
     axios
-    .get('https://bw-restaurant-pass.herokuapp.com/api/cities/all/rests')
-    .then(res => {
-      // console.log(res.data);
-      setData(res.data);
-      setSearchResults(res.data);
-    })
-    .catch(err => {console.log(err);})
+      .get('https://bw-restaurant-pass.herokuapp.com/api/cities/all/rests')
+      .then(res => {
+        // console.log(res.data);
+        let timeout = window.setTimeout(() => {
+          setData(res.data);
+          setSearchResults(res.data);
+          setLoading(false);
+        }, 4000);
+
+      })
+      .catch(err => { console.log(err); })
   }, [])
 
   //functions
@@ -125,41 +125,39 @@ const Restaurants = () => {
       </FavDispCont> {/* end favoritesDisp */}
 
       {/* main display for restaurant cards */}
-    
-      <div className='mainDispCont'>
+
+      <MainDispCont className='mainDispCont'>
         {/* display cards */}
-        {
-          
-          searchResults.map( (ele, i) => {
-            return(
-
-              <Link key= {i} to='#'>
-          <RestCard className='card'>
-            <img alt='restaurant' src={Rest1} />
-            <RestInfo className='restInfo'>
-              <Heading4>{ele.name}</Heading4>
-              <ExtraSmallPara>
-                {ele.notes}
-              </ExtraSmallPara>
-              <ExtraSmallPara>
-                {ele.city}
-              </ExtraSmallPara>
-              <ExtraSmallPara>
-                {ele.website}
-              </ExtraSmallPara>
-            </RestInfo>
-            <RatingDisp className='ratingDisp'>
-              {ele.rating}
-            </RatingDisp>
-          </RestCard>
-        </Link>
-
+       
+          {
+            loading === true ? <StampLoader /> :
+          searchResults.map((ele, i) => {
+            return (
+              
+              <Link key={i} to='#'>
+                <RestCard className='card'>
+                  <img alt='restaurant' src={Rest1} />
+                  <RestInfo className='restInfo'>
+                    <Heading4>{ele.name}</Heading4>
+                    <ExtraSmallPara>
+                      {ele.notes}
+                    </ExtraSmallPara>
+                    <ExtraSmallPara>
+                      {ele.city}
+                    </ExtraSmallPara>
+                    <ExtraSmallPara>
+                      {ele.website}
+                    </ExtraSmallPara>
+                  </RestInfo>
+                  <RatingDisp className='ratingDisp'>
+                    {ele.rating}
+                  </RatingDisp>
+                </RestCard>
+              </Link>
             )/**end return */
           })
         }
-
-        
-      </div> {/* end mainDispCont */}
+      </MainDispCont> {/* end mainDispCont */}
     </div> // end restaurantsCont
   )
 }
