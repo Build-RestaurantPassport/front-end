@@ -37,14 +37,14 @@ const LogIn = ( {values, errors, touched, status} ) => {
       </FormHeader>
       <Form>
         <div className= 'errorCont'>
-          <label htmlFor= 'email'>Email</label><br />
+          <label htmlFor= 'username'>Username</label><br />
           <Field
-            id= 'emailInput'
-            type='email'
-            name='email'
-            placeholder= 'Email'
+            id= 'usernameInput'
+            type='username'
+            name='username'
+            placeholder= 'Username'
           />
-          { touched.email && errors.email && ( <p className= 'error'>{errors.email}</p> ) }
+          { touched.username && errors.username && ( <p className= 'error'>{errors.username}</p> ) }
         </div>
         <div className= 'errorCont'>
           <label htmlFor= 'password'>Password</label><br />
@@ -67,24 +67,24 @@ const LogIn = ( {values, errors, touched, status} ) => {
 }
 const formikLogIn= withFormik({
 
-  mapPropsToValues({email, password}){
+  mapPropsToValues({username, password}){
     return{
-      email: email || '',
+      username: username || '',
       password: password || ''
     }//end return
   },// end mapPropsToValues
 
   //validation
   validationSchema: Yup.object().shape( {
-    email: Yup.string().min(12).max(30).required('Email is required.'),
+    username: Yup.string().min(5).max(30).required('Username is required.'),
     password: Yup.string().min(7).max(15).required('Password is required.')
   } ),//end validationSchema
 
   handleSubmit(values, {resetForm, setStatus}){
     axios().post('https://bw-restaurant-pass.herokuapp.com/api/auth/login', {
 
-      username: formData.username,
-      password: formData.password
+      username: values.username,
+      password: values.password
 
     }).then(res => {
 
