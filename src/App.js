@@ -7,6 +7,8 @@ import SignUp from './components/SignUp/SignUp';
 import Profile from './components/Profile/Profile';
 import Restaurants from './components/Restaurants/Restaurants';
 
+import PrivateRoute from './components/PrivateRoute';
+
 //styles
 import './Styles/styleVars';
 import { GlobalStyle, AppCont } from './Styles/globalStyles';
@@ -29,13 +31,13 @@ function App() {
         <SignUp />
       </Route>
 
-      <Route exact path='/profile'>
+      <PrivateRoute exact path='/profile'>
         <Profile />
-      </Route>
+      </PrivateRoute>
 
-      <Route exact path='/restaurants'>
+      <PrivateRoute exact path='/restaurants'>
         <Restaurants />
-      </Route>
+      </PrivateRoute>
 
     </AppCont>
   );

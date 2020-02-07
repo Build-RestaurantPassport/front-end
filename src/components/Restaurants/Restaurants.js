@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import axios from '../../axiosWithAuth'
 
 //components
 import Menu from '../../Assets/images/Menu.png';
@@ -14,6 +14,7 @@ import FavImg2 from '../../Assets/images/Best_Seafood_Card.png';
 import FavImg3 from '../../Assets/images/Best_Sushi_Card.png';
 import FavImg4 from '../../Assets/images/Best_Burger_Card.png';
 import Rest1 from '../../Assets/images/rest_profile_card_elrin.png';
+import RestaurantsContext from '../../contexts/RestaurantsContext';
 
 //styles
 import { Heading4, SmallPara } from '../../Styles/globalStyles';
@@ -45,7 +46,7 @@ const Restaurants = () => {
   //initial API call
   useEffect(() => {
     setLoading(true);
-    axios
+    axios()
       .get('https://bw-restaurant-pass.herokuapp.com/api/cities/all/rests')
       .then(res => {
         // console.log(res.data);
@@ -64,6 +65,23 @@ const Restaurants = () => {
     // console.log(e.target.value);
     setSearchTerm(e.target.value);
   }//end func
+
+  const add = () => {
+
+    axios().post('https://bw-restaurant-pass.herokuapp.com/api/cities/restaurants/', {
+      "name": "Chi Diner",
+      "address": "Chinatown",
+      "city": "Long Island",
+      "zip": "644444",
+      "phone": "(771)552-5555",
+      "website": "chidiner.com",
+      "rating": 3,
+      "notes": "Authentic chinese cuisine",
+      "stamped": 1,
+      "city_id": 2
+    }).then(res => { console.log(res); window.location.reload(false); }).catch(err => console.log(err));
+
+  }
 
   return (
     // main container for this entire section
@@ -124,23 +142,27 @@ const Restaurants = () => {
         </FavoritesRow> {/* end FavoritesRow */}
       </FavDispCont> {/* end favoritesDisp */}
 
-      {/* main display for restaurant cards */}
+      <button onClick={() => add()}>Add</button>
 
-      <MainDispCont className='mainDispCont'>
-        {/* display cards */}
+      
+        {/* main display for restaurant cards */}
+        <MainDispCont className='mainDispCont'>
+          {/* display cards */}
 
-        {/* conditional render of loader image */}
-        {loading === true ? <StampLoader /> :
-            searchResults.map((ele, i) => {
-              return (
-                //card component
-                <Link key={i} to='#'>
-                  <RestCardDisp image= {Rest1} data= {ele}/>
-                </Link>
-              )/**end return */
-            })
-        }
-      </MainDispCont> {/* end mainDispCont */}
+          {/* conditional render of loader image */}
+          {loading === true ? <StampLoader /> :
+              searchResults.map((ele, i) => {
+                return (
+                  //card component
+                  <RestaurantsContext.Provider value={{ ele, Rest1 }}>
+                    <Link key={i} to='#'>
+                      <RestCardDisp />
+                    </Link>
+                  </RestaurantsContext.Provider>
+                )/**end return */
+              })
+          }
+        </MainDispCont> {/* end mainDispCont */}
     </div> // end restaurantsCont
   )
 }
