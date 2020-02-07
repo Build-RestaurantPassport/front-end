@@ -1,30 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import axios from '../../axiosWithAuth';
+import {withFormik, Form, Field} from 'formik';
+import * as Yup from 'yup';
 
 //components
+import LeftArrow from '../../Assets/images/Chevron_Left.png';
 
 //styles
 import {Heading1} from '../../Styles/globalStyles';
-import './LogInStyles';
+import {FormHeader, LogInCont, SubmitButton, BottomFormInfo, FormArrowImg} from './LogInStyles';
 
-const LogIn = () => {
+const LogIn = ( {values, errors, touched, status} ) => {
   //state
   const [formData, setFormData] = useState([
     {
-      username: '',
+      email: '',
       password: ''
     }
   ]);
 
   //functions
+  useEffect(() => {
+    console.log('status has changed');
+    //this may be temporary code below, not sure... waiting on React 2
+  
+    //updata form data from status
+    status && setFormData( formData => [...formData, status] );
+    }, [status]);
+  
+  return (
+    <LogInCont className= 'logInCont'>
+      <FormHeader className= 'LogInHeader'>
+        <div><Link to= '/'><FormArrowImg alt= 'arrow-left' src= {LeftArrow} /></Link></div>
+        <Heading1>Log In</Heading1>
+      </FormHeader>
+      <Form>
+        <div className= 'errorCont'>
+          <label htmlFor= 'email'>Email</label><br />
+          <Field
+            id= 'emailInput'
+            type='email'
+            name='email'
+            placeholder= 'Email'
+          />
+          { touched.email && errors.email && ( <p className= 'error'>{errors.email}</p> ) }
+        </div>
+        <div className= 'errorCont'>
+          <label htmlFor= 'password'>Password</label><br />
+            <Field
+              id= 'passwordInput'
+              type='password'
+              name='password'
+              placeholder= 'Password'
+            />
+            { touched.password && errors.password && ( <p className= 'error'>{errors.password}</p> ) }
+        </div>
+        <SubmitButton type= 'submit'>Log In</SubmitButton>
+      </Form>
 
-  function handleChange(e){
-    setFormData( {...formData, [e.target.name]: e.target.value} );
-  }//end handleChange
+      <BottomFormInfo className= 'bottomFormInfo'>Don't have an account? <Link to= 'signup'>Sign-Up</Link></BottomFormInfo>
+      {/* temporary link to get into site until signUp/logIn gets hooked up */}
+      <Link to= '/profile'>To Profile></Link>
+    </LogInCont>
+  )
+}
+const formikLogIn= withFormik({
 
-  function handleSubmit(e){
-    e.preventDefault();
+  mapPropsToValues({email, password}){
+    return{
+      email: email || '',
+      password: password || ''
+    }//end return
+  },// end mapPropsToValues
+
+  //validation
+  validationSchema: Yup.object().shape( {
+    email: Yup.string().min(12).max(30).required('Email is required.'),
+    password: Yup.string().min(7).max(15).required('Password is required.')
+  } ),//end validationSchema
+
+  handleSubmit(values, {resetForm, setStatus}){
     axios().post('https://bw-restaurant-pass.herokuapp.com/api/auth/login', {
 
       username: formData.username,
@@ -42,38 +98,10 @@ const LogIn = () => {
       }
 
     }).catch(err => console.log(err));
-  }//end handleSubmit
-  console.log(formData);  
-  return (
-    <div className= 'logInCont'>
-      <Heading1>Log In</Heading1>
+      setStatus(values);
+      resetForm();
+    }//end handleSubmit
 
-      <form onSubmit= {handleSubmit}>
-        <label htmlFor= 'username' />
-        <input
-          onChange= {handleChange}
-          value= {formData.username}
-          id= 'usernameInput'
-          type='text'
-          name='username'
-          placeholder= 'Username'
-        />
-        <label htmlFor= 'password'>
-          <input
-            onChange= {handleChange}
-            value= {formData.password}
-            id= 'passwordInput'
-            type='password'
-            name='password'
-            placeholder= 'Password'
-          />
-        </label>
-        <button type= 'submit'>Submit</button>
-      </form>
 
-      <span>Don't have an account? <Link to= 'signup'>Sign-Up</Link></span>
-    </div>
-  )
-}
-
-export default LogIn;
+})(LogIn)
+export default formikLogIn;

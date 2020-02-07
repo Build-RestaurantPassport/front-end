@@ -3,9 +3,10 @@
 
 const theme= {
   // *** THEME COLORS ***
-  black: '#000',
-  white: '#eee',
+  black: '#333',
+  white: '#fff',
   gray: '#999',
+  lightGray: '#ddd',
   orange: 'darkGoldenRod',
   blue: 'cornflowerBlue',
   green: '#219653',
@@ -24,7 +25,7 @@ const fontStyles= {
   h2Color: theme.gray,
   h3Color: theme.gray,
   h4Color: theme.gray,
-  h5Color: theme.gray,
+  h5Color: theme.black,
 
 // **** FONT SIZES ****
   extraSmallPSize: '0.8rem',
@@ -39,7 +40,7 @@ const fontStyles= {
 }//end fontStyles
 
 const btnStyles= {
-  bgColor: theme.orange,
+  bgColor: theme.green,
   fontColor: fontStyles.pColor,
   fontSize: fontStyles.pSize
 }//end btnStyles
@@ -56,11 +57,17 @@ const footerStyles= {
   backgroundColor: theme.gray
 }//end footerStyles
 
+const formStyles= {
+  color: theme.black,
+  bgColor: theme.lightGray
+}//end formStyles
+
 export {
   theme, 
   fontStyles,
   btnStyles,
   cardStyles,
   headerStyles,
-  footerStyles
+  footerStyles,
+  formStyles
 };

@@ -18,19 +18,22 @@ function App() {
       <GlobalStyle />  {/**contains body reset stuff, box-sizing etc..  */}
 
       <Route exact path='/'>
-        <Entry />
-      </Route>
-      <Route exact path='/login'>
         <LogIn />
       </Route>
+
+      <Route path='/login'>
+        <LogIn />
+      </Route>
+
       <Route exact path='/signup'>
         <SignUp />
       </Route>
+
       <Route exact path='/profile'>
         <Profile />
       </Route>
 
-      <Route exact path= '/restaurants'>
+      <Route exact path='/restaurants'>
         <Restaurants />
       </Route>
 

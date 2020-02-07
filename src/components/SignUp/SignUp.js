@@ -9,7 +9,7 @@ import LeftArrow from '../../Assets/images/Chevron_Left.png';
 
 //styles
 import {Heading1} from '../../Styles/globalStyles';
-import {SignUpHeader, LogInCont} from './SignUpStyles';
+import {FormHeader, SignUpCont, SubmitButton, BottomFormInfo, FormArrowImg} from './SignUpStyles';
 
 const SignUp = ({values, errors, touched, status}) => {
     
@@ -35,24 +35,24 @@ const SignUp = ({values, errors, touched, status}) => {
   }, [status]);
 
   return (
-    <LogInCont className= 'logInCont'>
-      <SignUpHeader className= 'signUpHeader'>
-        <span><img alt= 'arrow-left' src= {LeftArrow} /></span>
+    <SignUpCont className= 'logInCont'>
+      <FormHeader className= 'signUpHeader'>
+        <div><Link to= '/'><FormArrowImg alt= 'arrow-left' src= {LeftArrow} /></Link></div>
         <Heading1>Sign UP</Heading1>
-      </SignUpHeader>
+      </FormHeader>
       <Form>
       <div className= 'errorCont'>
-        <label htmlFor= 'name' />Name<br />
+        <label htmlFor= 'userName'>User Name</label><br />
           <Field
             id= 'nameInput'
             type='text'
-            name='name'
-            placeholder= 'Name'
+            name='userName'
+            placeholder= 'User Name'
           />
-          { touched.name && errors.name && ( <p className= 'error'>{errors.name}</p> ) }
+          { touched.userName && errors.userName && ( <p className= 'error'>{errors.userName}</p> ) }
       </div>
         <div className= 'errorCont'>
-          <label htmlFor= 'email' />Email <br />
+          <label htmlFor= 'email'>Email</label> <br />
           <Field
             id= 'emailInput'
             type='email'
@@ -62,7 +62,7 @@ const SignUp = ({values, errors, touched, status}) => {
           { touched.email && errors.email && ( <p className= 'error'>{errors.email}</p> ) }
         </div>
         <div className= 'errorCont'>
-          <label htmlFor= 'password' /> Password <br />
+          <label htmlFor= 'password'>Password</label> <br />
             <Field
               id= 'passwordInput'
               type='password'
@@ -71,19 +71,21 @@ const SignUp = ({values, errors, touched, status}) => {
             />
             { touched.password && errors.password && ( <p className= 'error'>{errors.password}</p> ) }
         </div>
-        <button type= 'submit'>Sign Up</button>
+        <SubmitButton type= 'submit'>Sign Up</SubmitButton>
       </Form>
 
-      <span>Already have an account? <Link to= 'login'>Log In</Link></span>
-    </LogInCont>
+      <BottomFormInfo>Already have an account? <Link to= 'login'>Log In</Link></BottomFormInfo>
+      {/* temporary link to get into site until signUp/logIn gets hooked up */}
+      <Link to= '/profile'>To Profile></Link>
+    </SignUpCont>
   )
 }
 
 
 const formikSignUp= withFormik( {
-  mapPropsToValues({name, email, password}){
+  mapPropsToValues({userName, email, password}){
     return{
-      name: name || '',
+      userName: userName || '',
       email: email || '',
       password: password || ''
     }//end return
@@ -91,7 +93,7 @@ const formikSignUp= withFormik( {
 
   //validation
   validationSchema: Yup.object().shape( {
-    name: Yup.string().min(3).max(25).required('Name is required.'),
+    userName: Yup.string().min(3).max(25).required('Name is required.'),
     email: Yup.string().min(12).max(30).required('Email is required.'),
     password: Yup.string().min(7).max(15).required('Password is required.')
   } ),//end validationSchema
