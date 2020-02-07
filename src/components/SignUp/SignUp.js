@@ -12,6 +12,9 @@ import {Heading1} from '../../Styles/globalStyles';
 import {SignUpHeader, LogInCont} from './SignUpStyles';
 
 const SignUp = ({values, errors, touched, status}) => {
+    
+  const token = localStorage.getItem('token');
+
   //state
   const [formData, setFormData]= useState([{
     username: '',
@@ -24,24 +27,12 @@ const SignUp = ({values, errors, touched, status}) => {
   console.log('status has changed');
   //this may be temporary code below, not sure... waiting on React 2
 
+  console.log('bbbbbbbbbbb: ' + formData.username);
+
   //updata form data from status
   status && setFormData( formData => [...formData, status] );
 
-  function handleSubmit(e){
-    e.preventDefault();
-    axios
-    .get('', {
-
-      
-
-    }).then(res => {
-
-
-
-    }).catch(err => console.log(err))
-  }//end handleSubmit
-
-  }, [status])
+  }, [status]);
 
   return (
     <LogInCont className= 'logInCont'>
@@ -106,15 +97,25 @@ const formikSignUp= withFormik( {
   } ),//end validationSchema
 
   handleSubmit(values, {resetForm, setStatus}){
-  //   //un-comment when you need it.. 
-  //   axios
-  //   .get()
-  //   .then(res => {
-  //     console.log('Success!', res);
-  //     setStatus(res.data);
-  //     resetForm();
-  //   })
-  //   .catch(err => {console.log(err.response);})
+
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa');
+
+    console.log(values);
+
+    axios().post('https://bw-restaurant-pass.herokuapp.com/api/auth/register', 
+    {
+      "username": values.name,
+      "password": values.password,
+      "name": values.name,
+      "city": "test",
+      "email": values.email
+    }).then(res => {
+
+      console.log(res);
+
+      window.location = '/login';
+
+    }).catch(err => console.log(err));
   
   // temporary code below waiting on React 2 to do his thing here. delete setStatus and resetForm below when ready
     setStatus(values);

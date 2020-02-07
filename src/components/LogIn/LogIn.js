@@ -25,15 +25,21 @@ const LogIn = () => {
 
   function handleSubmit(e){
     e.preventDefault();
-    axios
-    .post('/', {
+    axios().post('https://bw-restaurant-pass.herokuapp.com/api/auth/login', {
 
       username: formData.username,
       password: formData.password
 
     }).then(res => {
 
-      
+      console.log(res);
+
+      if (res.status == 200) {
+
+        localStorage.setItem('token', res.data.token);
+        window.location = '/profile';
+
+      }
 
     }).catch(err => console.log(err));
   }//end handleSubmit
