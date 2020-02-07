@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {NavLink, Route} from 'react-router-dom';
 
 //components
@@ -22,6 +22,12 @@ import {
 } from './ProfileStyles';
 
 const Profile = () => {
+
+  useEffect(() => {
+
+    
+
+  });
 
   return (
     <ProfileCont className='profileCont'>
